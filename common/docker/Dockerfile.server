@@ -1,0 +1,23 @@
+# Use official Node.js image
+FROM node:20-alpine AS server
+
+# Set working directory
+WORKDIR /app
+
+# ✅ Copy the root package files first (to optimize Docker layer caching)
+COPY ../../package.json ../package-lock.json ./
+
+# Copy server code
+COPY ./server/ ./server/
+
+# Copy types code
+COPY ./common/ ./common/
+
+# ✅ Ensure dependencies are installed correctly, including workspace dependencies
+RUN npm install --workspace server --ignore-scripts
+
+# Build
+RUN npm run build -w server
+
+# Expose API port
+EXPOSE 3001
