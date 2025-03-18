@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"baseUrl": "./",
+		"paths": {
+			"#common/*": [
+				"./common/*"
+			],
+			"#client/*": [
+				"./client/src/*"
+			],
+			"#server/*": [
+				"./server/src/*"
+			]
+		},
+		"esModuleInterop": true,
+		"noEmit": true
+	}
+}
