@@ -22,7 +22,7 @@ export default tseslint.config(
 			},
 		},
 		plugins: {
-			'react': react,
+			react: react,
 			'react-hooks': reactHooks,
 			'react-refresh': reactRefresh,
 		},
@@ -30,12 +30,14 @@ export default tseslint.config(
 			...reactHooks.configs.recommended.rules,
 			...react.configs.recommended.rules,
 			...react.configs['jsx-runtime'].rules,
-			'react-refresh/only-export-components': [
-				'warn',
-				{ allowConstantExport: true },
-			],
+			'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 			'eol-last': ['error', 'always'], // ✅ Enforces newline at EOF
 		},
-		ignores: ['dist']
+		ignores: ['dist'],
+		settings: {
+			react: {
+				version: 'detect',
+			},
+		},
 	},
 )
