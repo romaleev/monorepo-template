@@ -1,7 +1,6 @@
 # monorepo-template
 
 Todo:
-- lib ver updates
 - global vite,
 - server vitest
 - global tsconfigs
