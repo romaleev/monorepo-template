@@ -1,5 +1,11 @@
 # monorepo-template
 
+Todo:
+- lib ver updates
+- global vite,
+- server vitest
+- global tsconfigs
+
 **Monorepo Template** powered with:
 - `React` with `Zustand` state management, `React Query`, `Vite` bundler
 - `Material-UI (MUI)` for a clean and responsive design.
@@ -10,7 +16,7 @@
 - `I18next` localisation support
 - `ESLint` lint, fix, coverage
 - `Prettier` lint, fix, organize imports
-- Pre-commit `hook` with lint staged
+- Pre-commit `hook` with lint and test
 - `Editor config`
 - `Playwright`, `Vitest`, `Supertest` and `Jest` unit and e2e tests and coverage
 - `NPM` check updates
@@ -31,87 +37,87 @@ Install [Docker](https://docs.docker.com/get-docker/) and NPM dependencies (**St
 
 `brew install --cask docker` Install Docker using [brew](https://brew.sh/) example (**Step 1**)
 
-`npm install` Install NPM dependencies (**Step 2**)
+`pnpm install` Install NPM dependencies (**Step 2**)
 
 ### Development
 
 Start app in Development mode with hot reload (**Step 1**).
 The app will be available at `http://localhost:4200`.
 
-`npm run start` Start client, server, Postgres service and prepares database with mock data (**Step 1**)
+`pnpm start` Start client, server, Postgres service and prepares database with mock data (**Step 1**)
 
-`npm run start:client` Start client
+`pnpm start:client` Start client
 
-`npm run start:server` Start server
+`pnpm start:server` Start server
 
-`npm run on:stop` Run on-stop scripts
+`pnpm on:stop` Run on-stop scripts
 
 ### Testing
 
-Run the app in Development mode (**Step 1**) and Production mode (**Steps 1-3**) first
+Run the app in Development mode (**Step 1**) and Production mode (**Steps 1-2**) first
 
-`npm run test` Run client, server and e2e tests
+`pnpm test` Run client, server and e2e tests
 
-`npm run test:e2e` Run end-to-end tests
+`pnpm test:e2e` Run end-to-end tests
 
-`npm run test:e2e:local` Run end-to-end tests for local environment
+`pnpm test:e2e:local` Run end-to-end tests for local environment
 
-`npm run test:e2e:docker` Run end-to-end tests for Docker environment
+`pnpm test:e2e:docker` Run end-to-end tests for Docker environment
 
-`npm run test:client` Run client tests
+`pnpm test:client` Run client tests
 
-`npm run test:server` Run server tests
+`pnpm test:server` Run server tests
 
-`npm run test:watch` Run client and server tests in watch mode
+`pnpm test:watch` Run client and server tests in watch mode
 
-`npm run test:watch:client` Run client tests in watch mode
+`pnpm test:watch:client` Run client tests in watch mode
 
-`npm run test:watch:server` Run server tests in watch mode
+`pnpm test:watch:server` Run server tests in watch mode
 
-`npm run test:coverage` Run client and server tests coverage report
+`pnpm test:coverage` Run client and server tests coverage report
 
-`npm run test:client:coverage` Run client tests coverage report
+`pnpm test:client:coverage` Run client tests coverage report
 
-`npm run test:server:coverage` Run server tests coverage report
+`pnpm test:server:coverage` Run server tests coverage report
 
 ### Build
 
 Build client and server
 
-`npm run build` Build client and server
+`pnpm run build` Build client and server
 
-`npm run build:client` Build client
+`pnpm run build:client` Build client
 
-`npm run build:server` Build server
+`pnpm run build:server` Build server
 
 ### Production
 
-Start app in Production mode in Docker environment (**Steps 1-3**). 
-The app will be available at `http://localhost:4200`.
+Start app in Production mode in Docker environment (**Steps 1-2**). 
+The app will be available at `http://localhost:4300`.
 
-`npm run docker:build` Build Docker images (**Step 1**)
+`pnpm docker:build` Build Docker images (**Step 1**)
 
-`npm run docker:deploy` Deploy Docker containers (**Step 2**)
+`pnpm docker:deploy` Deploy Docker containers (**Step 2**)
 
-`npm run docker:rm` Remove Docker containers
+`pnpm docker:rm` Remove Docker containers
 
-`npm run docker:init` Init Docker
+`pnpm docker:init` Init Docker
 
-`npm run docker:status` Show Docker status
+`pnpm docker:status` Show Docker status
 
-`npm run docker:logs` Show Docker logs
+`pnpm docker:logs` Show Docker logs
 
-`npm run docker:prune` Prune Docker containers
+`pnpm docker:prune` Prune Docker containers
 
 ### Code quality
 
 Code quality checks and fixes
 
-`npm run lint` Run code quality checks
+`pnpm lint` Run code quality checks
 
-`npm run lint:fix` Run code quality fixes
+`pnpm lint:fix` Run code quality fixes
 
-`npm run update` Update libraries to the latest versions
+`pnpm run update` Update libraries to the latest versions
 
 ## API Endpoints
 

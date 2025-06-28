@@ -42,4 +42,4 @@ services:
       restart_policy:
         condition: any
         delay: 5s
-    command: npm run prod -w server
+    command: pnpm -F server prod

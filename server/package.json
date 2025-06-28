@@ -1,10 +1,10 @@
 {
-	"name": "monorepo-template-server",
+	"name": "server",
 	"version": "1.0.0",
 	"main": "dist/index.js",
 	"private": true,
 	"scripts": {
-		"start": "NODE_ENV=development node --no-warnings=ExperimentalWarning --watch --import=tsx src/index.ts",
+		"start": "NODE_ENV=development tsx --watch src/index.ts",
 		"build": "tsc --project tsconfig.server.json && tsc-alias --project tsconfig.server.json",
 		"prod": "NODE_ENV=production node /app/server/dist/server/src/index.js",
 		"test": "jest --no-watchman --maxWorkers=80% --detectOpenHandles",
@@ -29,6 +29,7 @@
 		"typescript-eslint": "^8.30.1"
 	},
 	"dependencies": {
+		"@jest/types": "^30.0.1",
 		"cors": "^2.8.5",
 		"dotenv": "^16.5.0",
 		"express": "^5.1.0",

@@ -1,5 +1,5 @@
 {
-  "name": "monorepo-template-client",
+  "name": "client",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -28,16 +28,15 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react-swc": "^3.9.0",
+    "esbuild": "^0.25.5",
     "jsdom": "^26.1.0",
     "typescript": "~5.8.3",
-    "typescript-eslint": "^8.30.1",
     "vite": "^6.3.2",
     "vitest": "^3.1.2"
   }

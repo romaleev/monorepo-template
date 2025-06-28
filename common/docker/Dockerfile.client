@@ -1,23 +1,28 @@
 # Use official Node.js image
 FROM node:20-alpine AS client
 
+# Install pnpm globally
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 # Set working directory
 WORKDIR /app
 
 # ✅ Copy the root package files first (to optimize Docker layer caching)
-COPY ../../package.json ../package-lock.json ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Copy client code
-COPY ./client/ ./client/
-
-# Copy common code
-COPY ./common/ ./common/
+COPY client/package.json ./client/package.json
 
 # ✅ Ensure dependencies are installed correctly, including workspace dependencies
-RUN npm install --workspace client --ignore-scripts
+RUN pnpm -F client --ignore-scripts --frozen-lockfile install
+
+# Copy client code
+COPY client/ ./client/
+
+# Copy common code
+COPY common/ ./common/
 
 # Build
-RUN npm run build -w client
+RUN pnpm -F client run build
 
 # 🚀 Nginx Stage
 FROM nginx:alpine

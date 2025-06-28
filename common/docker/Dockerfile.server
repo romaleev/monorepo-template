@@ -1,23 +1,28 @@
 # Use official Node.js image
 FROM node:20-alpine AS server
 
+# Install pnpm globally
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
 # Set working directory
 WORKDIR /app
 
 # ✅ Copy the root package files first (to optimize Docker layer caching)
-COPY ../../package.json ../package-lock.json ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Copy server code
-COPY ./server/ ./server/
-
-# Copy types code
-COPY ./common/ ./common/
+COPY server/package.json ./server/package.json
 
 # ✅ Ensure dependencies are installed correctly, including workspace dependencies
-RUN npm install --workspace server --ignore-scripts
+RUN pnpm -F server --ignore-scripts --frozen-lockfile install
+
+# Copy server code
+COPY server/ ./server/
+
+# Copy types code
+COPY common/ ./common/
 
 # Build
-RUN npm run build -w server
+RUN pnpm -F server run build
 
 # Expose API port
 EXPOSE 3001

@@ -2,7 +2,7 @@ import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 import { TsconfigRaw } from 'esbuild'
-import tsconfigRawData from './tsconfig.build.json' assert { type: 'json' }
+import tsconfigRawData from './tsconfig.build.json'
 
 const tsconfigRaw: TsconfigRaw = tsconfigRawData as TsconfigRaw
 

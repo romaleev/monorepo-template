@@ -5,12 +5,12 @@
 	"main": "server/dist/index.js",
 	"private": true,
 	"scripts": {
-		"start": "trap 'npm run on:stop' EXIT INT TERM && npm-run-all --parallel start:client start:server",
-		"start:client": "npm run start -w client",
-		"start:server": "npm run start -w server",
+		"start": "trap 'pnpm on:stop' EXIT INT TERM && npm-run-all --parallel start:client start:server",
+		"start:client": "pnpm -F client start",
+		"start:server": "pnpm -F server start",
 		"build": "npm-run-all --parallel build:*",
-		"build:client": "npm run build -w client",
-		"build:server": "npm run build -w server",
+		"build:client": "pnpm -F client run build",
+		"build:server": "pnpm -F server run build",
 		"on:stop": "echo Clean on exit",
 		"docker:init": "(docker info | grep 'Swarm: active' || docker swarm init)",
 		"docker:deploy": "docker stack deploy -c common/docker/docker-stack.yml monorepo-template",
@@ -21,38 +21,28 @@
 		"docker:prune": "docker system prune -af && docker volume prune -f",
 		"test": "npm-run-all --parallel test:client test:server test:e2e",
 		"test:watch": "npm-run-all --parallel test:watch:*",
-		"test:client": "npm run test -w client",
-		"test:watch:client": "npm run test:watch -w client",
-		"test:server": "npm run test -w server",
-		"test:watch:server": "npm run test:watch -w server",
+		"test:client": "pnpm -F client run test",
+		"test:watch:client": "pnpm -F client run test:watch",
+		"test:server": "pnpm -F server run test",
+		"test:watch:server": "pnpm -F server run test:watch",
 		"test:coverage": "npm-run-all --parallel test:client:coverage test:server:coverage",
-		"test:client:coverage": "npm run test:coverage -w client",
-		"test:server:coverage": "npm run test:coverage -w server",
+		"test:client:coverage": "pnpm -F client test:coverage",
+		"test:server:coverage": "pnpm -F server test:coverage",
 		"test:e2e": "npm-run-all --parallel test:e2e:*",
-		"test:e2e:local": "npx playwright test --project=local",
-		"test:e2e:docker": "npx playwright test --project=docker",
-		"lint": "eslint {client,server,common}/**/*.ts && prettier {client,server,common}/**/*.ts",
-		"lint:fix": "eslint --fix {client,server,common}/**/*.ts && prettier --write {client,server,common}/**/*.ts",
-		"update": "npm i npm-check-updates@latest --save-dev && ncu --root -ws -u && npm i && npm audit fix && npm run lint && npm test",
+		"test:e2e:local": "pnpm exec playwright test --project=local",
+		"test:e2e:docker": "pnpm exec playwright test --project=docker",
+		"lint": "tsc --noEmit && eslint {client,server,common}/**/*.ts && prettier {client,server,common}/**/*.ts",
+		"lint:fix": "tsc --noEmit && eslint --fix {client,server,common}/**/*.ts && prettier --write {client,server,common}/**/*.ts",
+		"update": "pnpm add npm-check-updates@latest -D && ncu --root -ws -u && pnpm i && pnpm audit fix && pnpm lint && pnpm test",
 		"prepare": "husky && npm run docker:init && playwright install"
 	},
-	"workspaces": [
-		"client",
-		"server"
-	],
 	"repository": {
 		"type": "git",
 		"url": "git+ssh://git@github.com/romaleev/monorepo-template.git"
 	},
 	"type": "module",
 	"engines": {
-		"node": ">=18.0.0"
-	},
-	"lint-staged": {
-		"{client,server,types,e2e}/**/*.ts": [
-			"eslint --fix",
-			"prettier --write"
-		]
+		"node": ">=20.0.0"
 	},
 	"keywords": [
 		"monorepo-template",
@@ -72,8 +62,10 @@
 	},
 	"homepage": "https://github.com/romaleev/monorepo-template#readme",
 	"devDependencies": {
+		"@eslint/js": "^9.25.0",
 		"@playwright/test": "^1.52.0",
 		"@types/eslint-config-prettier": "^6.11.3",
+		"dotenv": "^16.5.0",
 		"eslint": "^9.25.0",
 		"eslint-config-prettier": "^10.1.2",
 		"eslint-plugin-react": "^7.37.5",
@@ -81,12 +73,12 @@
 		"eslint-plugin-react-refresh": "^0.4.19",
 		"globals": "^16.0.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^15.5.1",
 		"npm-check-updates": "^18.0.0",
 		"npm-run-all": "^4.1.5",
 		"playwright": "^1.52.0",
 		"prettier": "^3.5.3",
-		"prettier-eslint": "^16.4.1",
-		"prettier-plugin-organize-imports": "^4.1.0"
+		"prettier-plugin-organize-imports": "^4.1.0",
+		"typescript-eslint": "^8.30.1",
+		"vitest": "^3.2.4"
 	}
 }

@@ -1,9 +1,15 @@
 {
 	"compilerOptions": {
-		"module": "ESNext",
+		"target": "esnext",
+		"module": "esnext",
 		"moduleResolution": "node",
+		"lib": [
+			"esnext",
+			"DOM",
+			"DOM.Iterable"
+		],
 		"resolveJsonModule": true,
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": {
 			"#common/*": [
 				"./common/*"
@@ -15,7 +21,13 @@
 				"./server/src/*"
 			]
 		},
+		"skipLibCheck": true,
 		"esModuleInterop": true,
-		"noEmit": true
+		"jsx": "react-jsx",
+		"allowImportingTsExtensions": true,
+		"noEmit": true,
+		"types": [
+			"vitest/globals"
+		]
 	}
 }
