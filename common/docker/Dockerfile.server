@@ -21,6 +21,9 @@ COPY server/ ./server/
 # Copy types code
 COPY common/ ./common/
 
+# ✅ Copy root tsconfig files
+COPY tsconfig.json tsconfig.server.json ./
+
 # Build
 RUN pnpm -F server run build
 

@@ -24,7 +24,12 @@
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"jsx": "react-jsx",
+		"strict": true,
+		"allowJs": false,
+		"forceConsistentCasingInFileNames": true,
 		"allowImportingTsExtensions": true,
+		"noFallthroughCasesInSwitch": true,
+		"isolatedModules": true,
 		"noEmit": true,
 		"types": [
 			"vitest/globals"

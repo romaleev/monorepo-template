@@ -1,10 +1,5 @@
 # monorepo-template
 
-Todo:
-- global vite,
-- server vitest
-- global tsconfigs
-
 **Monorepo Template** powered with:
 - `React` with `Zustand` state management, `React Query`, `Vite` bundler
 - `Material-UI (MUI)` for a clean and responsive design.

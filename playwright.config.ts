@@ -22,14 +22,14 @@ export default defineConfig({
 			name: 'local',
 			outputDir: 'test-results/local',
 			use: {
-				baseURL: `http://localhost:${devEnv.parsed.CLIENT_PORT}`,
+				baseURL: `http://localhost:${devEnv.parsed?.CLIENT_PORT}`,
 			},
 		},
 		{
 			name: 'docker',
 			outputDir: 'test-results/docker',
 			use: {
-				baseURL: `http://localhost:${prodEnv.parsed.CLIENT_PORT}`,
+				baseURL: `http://localhost:${prodEnv.parsed?.CLIENT_PORT}`,
 			},
 		},
 	],

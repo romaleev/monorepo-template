@@ -3,15 +3,15 @@
 	"compilerOptions": {
 		"outDir": "./dist",
 		"noEmit": false,
-		"skipLibCheck": true
+		"allowImportingTsExtensions": false
 	},
 	"include": [
-		"src/**/*.ts",
-		"../common/**/*.ts"
+		"server/src/**/*.ts",
+		"common/**/*.ts"
 	],
 	"exclude": [
-		"src/**/*.spec.ts",
-		"../common/e2e/**/*.spec.ts"
+		"server/src/**/*.spec.ts",
+		"common/e2e/**/*.spec.ts"
 	],
 	"tsc-alias": {
 		"verbose": false,
