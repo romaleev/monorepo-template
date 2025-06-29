@@ -3,9 +3,7 @@
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.cache/tsconfig.client.tsbuildinfo",
 		"moduleResolution": "bundler",
-		"outDir": "./dist",
-		"noEmit": false,
-		"allowImportingTsExtensions": false
+		"outDir": "./dist"
 	},
 	"include": [
 		"client/src/**/*.{ts,tsx}",

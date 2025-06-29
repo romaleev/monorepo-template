@@ -8,7 +8,12 @@ const tsconfigRaw: TsconfigRaw = tsconfigRawData as TsconfigRaw
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [tsconfigPaths(), react()],
+	plugins: [
+		tsconfigPaths({
+			projects: ['../tsconfig.json'],
+		}),
+		react(),
+	],
 	build: {
 		chunkSizeWarningLimit: 600, // Adjust chunk size limit
 		rollupOptions: {
