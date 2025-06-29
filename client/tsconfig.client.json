@@ -1,5 +1,5 @@
 {
-  "compilerOptions": {
+	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
 			"#common/*": [
@@ -9,27 +9,32 @@
 				"src/*"
 			]
 		},
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.client.tsbuildinfo",
-    "target": "esnext",
-    "useDefineForClassFields": true,
-    "lib": ["esnext", "DOM", "DOM.Iterable"],
-    "module": "esnext",
-    "skipLibCheck": true,
-
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
-
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-		"types": ["vite/client"]
-  },
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.client.tsbuildinfo",
+		"target": "esnext",
+		"useDefineForClassFields": true,
+		"lib": [
+			"esnext",
+			"DOM",
+			"DOM.Iterable"
+		],
+		"module": "esnext",
+		"skipLibCheck": true,
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true,
+		"types": [
+			"vite/client",
+			"vitest/globals"
+		]
+	},
 	"include": [
 		"src/**/*.ts",
 		"src/**/*.tsx",

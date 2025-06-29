@@ -36,7 +36,7 @@ export default tseslint.config(
 		ignores: ['dist'],
 		settings: {
 			react: {
-				version: 'detect',
+				version: '19',
 			},
 		},
 	},

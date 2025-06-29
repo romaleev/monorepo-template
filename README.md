@@ -17,14 +17,14 @@ Todo:
 - `Prettier` lint, fix, organize imports
 - Pre-commit `hook` with lint and test
 - `Editor config`
-- `Playwright`, `Vitest`, `Supertest` and `Jest` unit and e2e tests and coverage
+- `Playwright`, `Vitest`, `Supertest` unit and e2e tests and coverage
 - `NPM` check updates
 
 ## Tech Stack
 - **Client**: React 19, Zustand, Vite, Material UI, I18next, React Query
 - **Server**: Node.js, Express, Typescript, Pino, Zod
 - **Database**: Postgres, Drizzle
-- **Testing**: Playwright, Vitest, Supertest, Jest
+- **Testing**: Playwright, Vitest, Supertest
 - **Deployment**: Docker, Docker Swarm
 - **Code Quality**: ESLint, Prettier, pre-commit hooks, lint-staged
 
@@ -75,9 +75,9 @@ Run the app in Development mode (**Step 1**) and Production mode (**Steps 1-2**)
 
 `pnpm test:coverage` Run client and server tests coverage report
 
-`pnpm test:client:coverage` Run client tests coverage report
+`pnpm test:coverage:client` Run client tests coverage report
 
-`pnpm test:server:coverage` Run server tests coverage report
+`pnpm test:coverage:server` Run server tests coverage report
 
 ### Build
 

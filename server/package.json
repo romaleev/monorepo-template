@@ -7,29 +7,24 @@
 		"start": "NODE_ENV=development tsx --watch src/index.ts",
 		"build": "tsc --project tsconfig.server.json && tsc-alias --project tsconfig.server.json",
 		"prod": "NODE_ENV=production node /app/server/dist/server/src/index.js",
-		"test": "jest --no-watchman --maxWorkers=80% --detectOpenHandles",
-		"test:watch": "jest --watch --maxWorkers=80%",
-		"test:coverage": "jest --coverage"
+		"test:run": "vitest run",
+		"test:watch": "vitest --watch",
+		"test:coverage": "vitest run --coverage"
 	},
 	"type": "module",
 	"devDependencies": {
 		"@types/cors": "^2.8.19",
 		"@types/express": "^5.0.3",
-		"@types/jest": "^30.0.0",
 		"@types/node": "^24.0.7",
 		"@types/pg": "^8.15.4",
 		"@types/supertest": "^6.0.3",
-		"jest": "^30.0.3",
 		"jiti": "^2.4.2",
-		"ts-jest": "^29.4.0",
-		"ts-node": "^10.9.2",
 		"tsc-alias": "^1.8.16",
 		"tsx": "^4.20.3",
 		"typescript": "^5.8.3",
 		"typescript-eslint": "^8.35.0"
 	},
 	"dependencies": {
-		"@jest/types": "^30.0.1",
 		"cors": "^2.8.5",
 		"dotenv": "^17.0.0",
 		"express": "^5.1.0",

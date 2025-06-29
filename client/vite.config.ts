@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitest/config'
-import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react'
 import path from 'path'
 import { TsconfigRaw } from 'esbuild'
 import tsconfigRawData from './tsconfig.build.json'

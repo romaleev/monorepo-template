@@ -4,9 +4,9 @@
 		"skipLibCheck": true,
 		"noEmit": true,
 		"types": [
-			"jest",
+			"vitest/globals",
 			"node"
-		]
+		],
 	},
 	"include": [
 		"src/**/*.spec.ts",
