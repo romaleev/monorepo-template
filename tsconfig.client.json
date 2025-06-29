@@ -1,21 +1,18 @@
 {
 	"extends": "./tsconfig.json",
 	"compilerOptions": {
-		"tsBuildInfoFile": "./node_modules/.cache/tsconfig.server.tsbuildinfo",
+		"tsBuildInfoFile": "./node_modules/.cache/tsconfig.client.tsbuildinfo",
+		"moduleResolution": "bundler",
 		"outDir": "./dist",
 		"noEmit": false,
 		"allowImportingTsExtensions": false
 	},
 	"include": [
-		"server/src/**/*.ts",
+		"client/src/**/*.{ts,tsx}",
 		"common/**/*.ts"
 	],
 	"exclude": [
-		"server/src/**/*.spec.ts",
+		"client/src/**/*.spec.{ts,tsx}",
 		"common/e2e/**/*.spec.ts"
-	],
-	"tsc-alias": {
-		"verbose": false,
-		"resolveFullPaths": true
-	}
+	]
 }

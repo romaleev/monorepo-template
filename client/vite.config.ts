@@ -1,14 +1,14 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
-import path from 'path'
 import { TsconfigRaw } from 'esbuild'
-import tsconfigRawData from './tsconfig.build.json'
+import tsconfigRawData from '../tsconfig.client.json'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 const tsconfigRaw: TsconfigRaw = tsconfigRawData as TsconfigRaw
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [react()],
+	plugins: [tsconfigPaths(), react()],
 	build: {
 		chunkSizeWarningLimit: 600, // Adjust chunk size limit
 		rollupOptions: {
@@ -30,12 +30,6 @@ export default defineConfig({
 				secure: false, // Set to false if using self-signed SSL certs
 				rewrite: (path) => path.replace(/^\/api/, '/api'), // Ensures the path remains intact
 			},
-		},
-	},
-	resolve: {
-		alias: {
-			'#common': path.resolve(__dirname, '../common'),
-			'#client': path.resolve(__dirname, 'src'),
 		},
 	},
 	esbuild: {

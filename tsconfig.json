@@ -1,13 +1,20 @@
 {
 	"compilerOptions": {
+		// Build Optimization
+		"incremental": true,
+		"tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo",
+		// Module & Target
 		"target": "esnext",
 		"module": "esnext",
 		"moduleResolution": "node",
+		"moduleDetection": "force",
+		// Library Types
 		"lib": [
 			"esnext",
 			"DOM",
 			"DOM.Iterable"
 		],
+		// Module Resolution
 		"resolveJsonModule": true,
 		"baseUrl": ".",
 		"paths": {
@@ -21,17 +28,26 @@
 				"./server/src/*"
 			]
 		},
+		// Interop & Compatibility
 		"skipLibCheck": true,
 		"esModuleInterop": true,
-		"jsx": "react-jsx",
-		"strict": true,
 		"allowJs": false,
+		"jsx": "react-jsx",
+		// Strictness & Type Safety
+		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"allowImportingTsExtensions": true,
-		"noFallthroughCasesInSwitch": true,
 		"isolatedModules": true,
 		"noEmit": true,
+		// Linting-Like Rules
+		"allowImportingTsExtensions": true,
+		"noFallthroughCasesInSwitch": true,
+		"useDefineForClassFields": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noUncheckedSideEffectImports": true,
+		// Types
 		"types": [
+			"vite/client",
 			"vitest/globals"
 		]
 	}

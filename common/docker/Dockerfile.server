@@ -7,12 +7,12 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Set working directory
 WORKDIR /app
 
-# ✅ Copy the root package files first (to optimize Docker layer caching)
+# Copy the root package files first (to optimize Docker layer caching)
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 COPY server/package.json ./server/package.json
 
-# ✅ Ensure dependencies are installed correctly, including workspace dependencies
+# Ensure dependencies are installed correctly, including workspace dependencies
 RUN pnpm -F server --ignore-scripts --frozen-lockfile install
 
 # Copy server code
@@ -21,7 +21,7 @@ COPY server/ ./server/
 # Copy types code
 COPY common/ ./common/
 
-# ✅ Copy root tsconfig files
+# Copy root tsconfig files
 COPY tsconfig.json tsconfig.server.json ./
 
 # Build
